@@ -1,11 +1,13 @@
 Project to develop a neural network based chess player
-Glossary:
+
+# Glossary
 * player side: Side controlled by the software or instance.
 * opponent side: The other side.
 The game state is stored in a 64 position string representing the board squares
 , starting on the left of the player side, advancing to right and then to the
 other lines on the opponent direction.
 
+# Data representation
 The representation is relative to the player side. In other words, ***the two
 players "sees" different representations***.
 
