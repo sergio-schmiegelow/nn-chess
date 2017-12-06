@@ -8,6 +8,7 @@ The game state is stored in a 64 position string representing the board squares
 other lines on the opponent direction.
 
 # Data representation
+## Basic string representaion
 The representation is relative to the player side. In other words, ***the two
 players "sees" different representations***.
 
@@ -39,4 +40,40 @@ pppppppp
 ........
 PPPPPPPP
 RNBQKBNR
+```
+## Compact multiple boards representation
+The multiple board representation is used to represent multiple possible locations of a single piece. This representation is made of a tuple:
+* Single char piece id
+* Board string, where the asterisk are put in all possible piece locations.
+
+For instance:
+
+Starting from this board:
+```
+rnbqkbnr
+p.pppppp
+.p......
+........
+........
+...PB...
+PPP.PPPP
+RN.QKBNR
+```
+The compact representation of all possible next locations of the e3 bishop is the tuple formed by
+* the char 'B'
+* and the board
+```
+rnbqkbnr
+p.pppppp
+.*.....*
+..*...*.
+...*.*..
+...PB...
+PPP*PPPP
+RN*QKBNR
+```
+
+This tuple in python would look like:
+```
+('B', 'RN*QKBNRPPP*PPPP...PB......*.*....*...*..*.....*p.pppppprnbqkbnr')
 ```
